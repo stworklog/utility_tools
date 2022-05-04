@@ -1,0 +1,4 @@
+from_dir,to_dir,file_name
+c:\src1,c:\des1,file1.pdf
+c:\src2,c:\des2,file2.txt
+c:\src2,c:\des3,file3.doc
