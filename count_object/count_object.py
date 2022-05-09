@@ -3,7 +3,7 @@
 import cv2
 import matplotlib.pyplot as plt
  
-image = cv2.imread('img_1_all.bmp')
+image = cv2.imread('sample.bmp')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 plt.figure(figsize=(12,7))
 plt.imshow(gray, cmap='gray')
