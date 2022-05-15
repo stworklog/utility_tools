@@ -1,0 +1,36 @@
+###########################################################
+# I need these config for all the linux machine I use
+###########################################################
+
+###########################################################
+# These lines to allow git branch in bash
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# color git branch names
+export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
+
+############################################################
+# Need this for the code reaper vscode plugin to work
+set +H
+
+############################################################
+# fzf command line setup
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# 
+source ~/software/fzf_tab_completion/bash/fzf-bash-completion.sh
+bind -x '"\t": fzf_bash_completion'
+
+############################################################
+# find-in-file - usage: fif <SEARCH_TERM>
+fif() {
+  if [ ! "$#" -gt 0 ]; then
+    echo "Need a string to search for!";
+    return 1;
+  fi
+  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+}
