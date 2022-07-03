@@ -1,6 +1,9 @@
 # https://codeinthehole.com/tips/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
 # This config allows incremental history searching
 
+# a potential location for inputrc is
+# /etc/inputrc
+
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 "\e[C": forward-char
