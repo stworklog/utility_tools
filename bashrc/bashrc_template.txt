@@ -4,6 +4,7 @@
 
 ###########################################################
 # These lines to allow git branch in bash
+# https://dev.to/sonyarianto/how-to-add-git-branch-name-to-shell-prompt-in-ubuntu-1gdj
 git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
