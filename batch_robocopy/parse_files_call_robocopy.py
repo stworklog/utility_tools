@@ -21,7 +21,7 @@ Tk().withdraw() # we don't want a full GUI, so keep the root window from appeari
 file_path = askopenfilename() # show an "Open" dialog box and return the path to the selected file
 print(file_path)
 
-df = pd.read_csv(file_path, names=['from_dir', 'to_dir', 'file_name'], sep=',', header=0)
+df = pd.read_csv(file_path, names=['from_dir', 'to_dir', 'file_name'], sep=',', header=0, index_col=False)
 df = df.reset_index()  # make sure indexes pair with number of rows
 for index, row in df.iterrows():
     cmd_str = 'robocopy \"' + str(row['from_dir']).replace('\\', '/')
