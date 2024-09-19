@@ -1,0 +1,5 @@
+{
+  "Data": {
+      "build_info_current_git_commit_id": "@GIT_COMMIT_HASH@"
+    }
+}
