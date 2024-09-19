@@ -1,0 +1,7 @@
+#ifndef BUILDCONFIG_H_IN
+#define BUILDCONFIG_H_IN
+
+#define __COMMIT_HASH__  "@GIT_COMMIT_HASH@"
+static const char build_info_current_git_commit_id[] = __COMMIT_HASH__;
+
+#endif // BUILDCONFIG_H_IN
