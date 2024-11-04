@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Put this pre-commit file to local git repo to make it effective
+# might need to use "chmox +x" to allow git to use it.
+
+echo "Commits from the local repository are not allowed."
+echo "Please directly commit changes on github and pull to local."
+echo "This is to avoid errors of committing code using company name ID"
+echo "Because directly commiting code on github will use github user ID"
+
+exit 1
