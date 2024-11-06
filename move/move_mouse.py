@@ -31,11 +31,12 @@ while (time.time() - start < total_min*60):
     print("\n" + "*"*10 + " Time elapsed (min):", int((time.time() - start)/60),
           "out of", total_min, "minutes" + "\n")
     move_mouse()
-    i = 0
+    elapsed_time = 0
     i_total = int(np.random.uniform(20, 30))
-    while (i < i_total):
-        time.sleep(2)
-        print("Waiting for:", i, "out of", i_total, "seconds")
-        i += 2
+    sleep_time_step = 2
+    while (elapsed_time < i_total):
+        time.sleep(sleep_time_step)
+        print("Waiting for:", elapsed_time, "out of", i_total, "seconds")
+        elapsed_time += sleep_time_step
 
 print("End time: ",time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
