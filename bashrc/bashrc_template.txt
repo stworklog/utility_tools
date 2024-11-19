@@ -2,15 +2,25 @@
 # I need these config for all the linux machine I use
 ###########################################################
 
-###########################################################
-# These lines to allow git branch in bash
-# https://dev.to/sonyarianto/how-to-add-git-branch-name-to-shell-prompt-in-ubuntu-1gdj
-git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
+## Do not use ##
+## Do not use #############################################################
+## Do not use ### These lines to allow git branch in bash
+## Do not use ### https://dev.to/sonyarianto/how-to-add-git-branch-name-to-shell-prompt-in-ubuntu-1gdj
+## Do not use ##git_branch() {
+## Do not use ##  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+## Do not use ##}
+## Do not use ##
+## Do not use ### color git branch names
+## Do not use ##export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\## Do not use ##$(git_branch)\[\033[00m\]\$ "
 
-# color git branch names
-export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
+# use this repo
+# https://github.com/magicmonty/bash-git-prompt
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+    GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+    source "$HOME/.bash-git-prompt/gitprompt.sh"
+fi
 
 ############################################################
 # Need this for the code reaper vscode plugin to work
